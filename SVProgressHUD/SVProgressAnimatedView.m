@@ -93,4 +93,23 @@
     return CGSizeMake((self.radius+self.strokeThickness/2+5)*2, (self.radius+self.strokeThickness/2+5)*2);
 }
 
+- (void)setPercentage:(CGFloat)progress {
+    
+    // nil subLayers
+    self.ringAnimatedLayer.sublayers = nil;
+    
+    // create new text layer
+    CATextLayer *label = [[CATextLayer alloc] init];
+    label.font = (__bridge CFTypeRef _Nullable)([UIFont boldSystemFontOfSize: 10]);
+    label.fontSize= 10;
+    label.frame = CGRectMake(0,0,40,40);
+    label.position = CGPointMake(CGRectGetMidX(self.ringAnimatedLayer.bounds), CGRectGetMidY(self.ringAnimatedLayer.bounds) + 15.0);
+    label.alignmentMode = kCAAlignmentCenter;
+    label.foregroundColor = [[UIColor blackColor] CGColor];
+    
+    NSString *string = [[NSString alloc] initWithFormat:@"%.0f%%", progress * 100];
+    label.string = string;
+    [self.ringAnimatedLayer addSublayer: label];
+}
+
 @end

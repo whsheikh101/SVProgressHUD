@@ -14,4 +14,6 @@
 @property (nonatomic, strong) UIColor *strokeColor;
 @property (nonatomic, assign) CGFloat strokeEnd;
 
+- (void)setPercentage:(CGFloat)progress;
+
 @end

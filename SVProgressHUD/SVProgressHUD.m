@@ -790,6 +790,9 @@ static const CGFloat SVProgressHUDLabelSpacing = 8.0f;
                 // Cancel the indefiniteAnimatedView, then show the ringLayer
                 [strongSelf cancelIndefiniteAnimatedViewAnimation];
                 
+                // Update percentage of ring view
+                [strongSelf.ringView setPercentage:progress];
+                
                 // Add ring to HUD
                 if(!strongSelf.ringView.superview){
                     [strongSelf.hudView.contentView addSubview:strongSelf.ringView];
